@@ -9,7 +9,9 @@ description: "A collection of labs demonstrating how to build Node+JS applicatio
 urlFragment: "azure-javascript-labs"
 ---
 
-# Official Microsoft Sample
+# Azure JavaScript Labs
+
+A collection of labs demonstrating how to build Node and JavaScript applications with Azure, Visual Studio Code and the Windows Subsystem for Linux (WSL).
 
 <!-- 
 Guidelines on README format: https://review.docs.microsoft.com/help/onboard/admin/samples/concepts/readme-template?branch=master
@@ -18,8 +20,6 @@ Guidance on onboarding samples to docs.microsoft.com/samples: https://review.doc
 
 Taxonomies for products and languages: https://review.docs.microsoft.com/new-hope/information-architecture/metadata/taxonomies?branch=master
 -->
-
-Give a short description for your sample here. What does it do and why is it important?
 
 ## Contents
 
