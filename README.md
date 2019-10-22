@@ -1,11 +1,12 @@
 ---
 page_type: sample
 languages:
-- csharp
+- javascript
+- nodejs
 products:
-- dotnet
-description: "Add 150 character max description"
-urlFragment: "update-this-to-unique-url-stub"
+- azure
+description: "A collection of labs demonstrating how to build Node+JS applications with Azure, Visual Studio Code and the Windows Subsystem for Linux (WSL)."
+urlFragment: "azure-javascript-labs"
 ---
 
 # Official Microsoft Sample
