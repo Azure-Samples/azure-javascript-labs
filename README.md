@@ -1,10 +1,10 @@
 ---
 page_type: sample
 languages:
-- javascript
-- nodejs
+  - javascript
+  - nodejs
 products:
-- azure
+  - azure
 description: "A collection of labs demonstrating how to build Node+JS applications with Azure, Visual Studio Code and the Windows Subsystem for Linux (WSL)."
 urlFragment: "azure-javascript-labs"
 ---
@@ -13,7 +13,7 @@ urlFragment: "azure-javascript-labs"
 
 A collection of labs demonstrating how to build Node and JavaScript applications with Azure, Visual Studio Code and the Windows Subsystem for Linux (WSL).
 
-<!-- 
+<!--
 Guidelines on README format: https://review.docs.microsoft.com/help/onboard/admin/samples/concepts/readme-template?branch=master
 
 Guidance on onboarding samples to docs.microsoft.com/samples: https://review.docs.microsoft.com/help/onboard/admin/samples/process/onboarding?branch=master
@@ -21,38 +21,33 @@ Guidance on onboarding samples to docs.microsoft.com/samples: https://review.doc
 Taxonomies for products and languages: https://review.docs.microsoft.com/new-hope/information-architecture/metadata/taxonomies?branch=master
 -->
 
-## Contents
+## Use Azure Functions to build a RESTful API
 
-Outline the file contents of the repository. It helps users navigate the codebase, build configuration and any related assets.
+Create an Azure Functions serverless API that returns a list of pets to be adopted. In this lab, you will learn how to create a basic REST API using Node.js Azure Functions and add dependencies from npm.
 
-| File/folder       | Description                                |
-|-------------------|--------------------------------------------|
-| `src`             | Sample source code.                        |
-| `.gitignore`      | Define what to ignore at commit time.      |
-| `CHANGELOG.md`    | List of changes to the sample.             |
-| `CONTRIBUTING.md` | Guidelines for contributing to the sample. |
-| `README.md`       | This README file.                          |
-| `LICENSE`         | The license for the sample.                |
+[Go to lab](1-vscode-serverless/README.md)
 
-## Prerequisites
+## Windows for Node.js Developers
 
-Outline the required components and tools that a user might need to have on their machine in order to run the sample. This can be anything from frameworks, SDKs, OS versions or IDE releases.
+Setup and customize a Windows PC for Open Source development using the Windows Terminal and Windows Subsystem for Linux (WSL). At the end of this lab you'll use VS Code to debug a Node.js project running in WSL.
 
-## Setup
+[Go to lab](2-windows-oss-terminal-wsl/README.md)
 
-Explain how to prepare the sample once the user clones or downloads the repository. The section should outline every step necessary to install dependencies and set up any settings (for example, API keys and output folders).
+## Deploying a Node.js app with GitHub Actions
 
-## Runnning the sample
+Create a web app in the Azure Cloud using the App Service extension in VS Code then configure a GitHub Actions workflow to add CI/CD to your app and get it deployed. In this lab you'll learn how to build, test, and deploy your app to Azure from your GitHub repository.
 
-Outline step-by-step instructions to execute the sample and see its output. Include steps for executing the sample from the IDE, starting specific services in the Azure portal or anything related to the overall launch of the code.
+[Go to lab](3-github-actions)
 
-## Key concepts
+## Use Visual Studio Online
 
-Provide users with more context on the tools and services used in the sample. Explain some of the code that is being used and how services interact with each other.
+TODO: Nik
 
-## Contributing
+[Go to lab](4-vso)
 
-This project welcomes contributions and suggestions.  Most contributions require you to agree to a
+### Contributing
+
+This project welcomes contributions and suggestions. Most contributions require you to agree to a
 Contributor License Agreement (CLA) declaring that you have the right to, and actually do, grant us
 the rights to use your contribution. For details, visit https://cla.opensource.microsoft.com.
 
