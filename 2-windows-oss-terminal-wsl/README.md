@@ -46,7 +46,6 @@ Feel free to change any of the profile settings and the Terminal will automatica
 ### POWERLINE FONT
 Next change your terminal profile to use a Powerline font.  Pick one of the following:
 
-`"fontFace" : "CascadiaPL",`<br/>
 `"fontFace" : "Space Mono for Powerline",`<br/>
 `"fontFace" : "Noto Mono for Powerline",` <br/>
 `"fontFace" : "ProFont for Powerline",` <br/>
