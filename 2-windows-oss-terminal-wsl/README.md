@@ -37,7 +37,7 @@ Save the changes. **Ctrl+S**
 
 On the Windows Terminal, select the down arrow next to the plus(+) sign as shown in this image. In the drop down, select: `My Node+JS Profile`. 
 
-![drop down menu](./menudropdown.png)
+![drop down menu](./nodejsmenudropdown.png)
 
 This profile will open an Ubuntu 18 bash shell. 
 
