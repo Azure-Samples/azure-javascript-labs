@@ -1,4 +1,0 @@
-    - uses: azure/webapps-deploy@v1
-      with:
-        app-name:  # Replace with your app name
-        publish-profile: ${{ secrets.WebApp_PublishProfile }}
