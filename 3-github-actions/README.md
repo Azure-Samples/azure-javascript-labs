@@ -15,13 +15,15 @@ In this lab, you will:
 
 ### Prerequisites
 
-1. Your Windows machine should have Node.js LTS, Docker, and Visual Studio Code
+1. Your Windows machine should have Node.js LTS and Visual Studio Code.
 
 1. You are using a GitHub account and an Azure account made for the purposes of this lab. These have been already logged into from your machine and the account info is saved.
 
 ### Setting up the GitHub repo
 
-1. Click the "Fork" button in the upper-right hand corner of this repository. From there, click the green "Clone" button and copy the URL.
+1. Navigate to the [example app repository](https://github.com/fiveisprime/Useful-Website).
+
+1. Click the "Fork" button in the upper-right hand corner of the repository. From there, click the green "Clone" button and copy the URL.
 
    ![](assets/images/fork-github.png)
 
