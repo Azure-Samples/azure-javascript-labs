@@ -41,7 +41,7 @@ Create a web app in the Azure Cloud using the App Service extension in VS Code t
 
 ## Use Visual Studio Online
 
-TODO: Nik
+Use Visual Studio Online to build, run, and debug a Node.js app from within a browser. In this lab, you'll learn how to create a VS Online environment from an existing GitHub repository and forward a port for local debugging.
 
 [Go to lab](4-vso)
 
