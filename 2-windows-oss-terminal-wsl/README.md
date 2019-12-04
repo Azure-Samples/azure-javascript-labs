@@ -22,11 +22,11 @@ Scroll down to `"profiles"`. Insert the profile below after the first `[`: <br/>
     "commandline" : "wsl.exe -d Ubuntu-18.04",
     "cursorColor" : "#FFFFFF",
     "cursorShape" : "bar",
-    "fontFace" : "Consolas",
+    "fontFace" : "Cascadia Code",
     "fontSize" : 12,
     "historySize" : 9001,
     "icon" : "ms-appx:///ProfileIcons/{9acb9455-ca41-5af7-950f-6bca1bc9722f}.png",
-    "name" : "My OSCON Profile",
+    "name" : "My Node+JS Profile",
     "padding" : "4, 2, 4, 2",
     "snapOnInput" : true,
     "useAcrylic" : false
@@ -35,7 +35,7 @@ Scroll down to `"profiles"`. Insert the profile below after the first `[`: <br/>
 ```
 Save the changes. **Ctrl+S**
 
-On the Windows Terminal, select the down arrow next to the plus(+) sign as shown in this image. In the drop down, select: `My OSCON Profile`. 
+On the Windows Terminal, select the down arrow next to the plus(+) sign as shown in this image. In the drop down, select: `My Node+JS Profile`. 
 
 ![drop down menu](./menudropdown.png)
 
@@ -46,6 +46,7 @@ Feel free to change any of the profile settings and the Terminal will automatica
 ### POWERLINE FONT
 Next change your terminal profile to use a Powerline font.  Pick one of the following:
 
+`"fontFace" : "CascadiaPL",`<br/>
 `"fontFace" : "Space Mono for Powerline",`<br/>
 `"fontFace" : "Noto Mono for Powerline",` <br/>
 `"fontFace" : "ProFont for Powerline",` <br/>
@@ -56,7 +57,7 @@ Save the changes. **Ctrl+S**
 With the fonts installed, you can install the PowerLine shell in Ubuntu.  We've downloaded the powerline-shell for you so all you need to do is add an entry to the .bashrc.
 
 Open Windows File Explorer.
-In the Address bar enter `\\wsl$\Ubuntu-18.04\home\oscon`
+In the Address bar enter `\\wsl$\Ubuntu-18.04\home\nodejs`
 Edit (Double-click) .bashrc -> Opens in VS Code
 Add the following:
 
@@ -75,37 +76,37 @@ Save the changes using **Ctrl+S**, close the WSL tab and reopen it to see the ch
 
 To have multiple panes within our Ubuntu 18 shell we can use Tmux.  Here's how:
 <!--- 
-From the Ubuntu 18 shell run `sudo apt install tmux -y` (password: oscon)
+From the Ubuntu 18 shell run `sudo apt install tmux -y` (password: nodejs)
 Installing this before hand, so they won't need to install.
 -->
 1. Open the Ubuntu 18 shell.
-2. Start a new tmux session by typing `tmux` and pressing enter
+2. Start a new tmux session by typing `tmux` and pressing enter.
 3. Add panes using the following:
     - Press **CTRL+B** and then **"** to split the screen vertically
     - Press **CTRL+B** and then **%** to split the screen horizontally
     - Use **CTRL+B** and then the arrow keys to navigate between the screens
     - Use whatever mix and match of cool apps you'd like here. I recommend using `htop` in the top Window, `cmatrix` on the bottom left and `cacafire`
-    - To quit a window press **CTRL+B** and then **x** and then press **y** to accept. 
-    - Quit all windows to exit the tmux session.
+    - To quit a window press **CTRL+B** and then **x** and then press **y** to accept
+    - Quit all windows to exit the tmux session
 
 ## Run a Node Project in WSL
 
-In the Terminal using your OSCON profile, navigate to
+In the Terminal using your Node+JS profile, navigate to
  `~\projects\`
 1. run `cd node-shopping-cart`
 2. run `npm install`
 3. run `npm start`
-4. Use a web browser to open <http://localhost:3000> to see the site is working.  You are now running  the Linux version of NodeJS locally on Windows via WSL. 
+4. Use a web browser to open <http://localhost:3000> to see the site is working.  You are now running the Linux version of NodeJS locally on Windows via WSL. 
 
 ### Debug the Node Project with VS Code
-1. While still in the OSCON profile in Terminal, close the previous running instance of NodeJS if you haven't already. We're now going to start the same project using VS Code.
-2. Navigate to the '`\projects\nodejs-shopping-cart` directory and type `code-insiders .` to open the project in VS Code
-3. This opens VS Code on Windows with a feature to debug the NodeJS project running in WSL
-4. In VS Code you can run the debugger and use breakpoints.  You're using a Windows code editor/debugger for a project running the Linux NodeJS.  Pretty cool!
+1. While still in the Node+JS profile in Terminal, close the previous running instance of NodeJS if you haven't already. We're now going to start the same project using VS Code.
+2. Navigate to the '`\projects\nodejs-shopping-cart` directory and type `code-insiders .` to open the project in VS Code.
+3. This opens VS Code on Windows with a feature to debug the NodeJS project running in WSL.
+4. In VS Code you can run the debugger and use breakpoints.  You're using a Windows code editor/debugger for a project running the Linux NodeJS. Pretty cool!
 
 ## Customize Windows Terminal
 
-Let's make the OSCON profile look more like Ubuntu. Using your OSCON profile, update the properties below in the JSON. As you update your profile, the Terminal will automatically reflect your changes.
+Let's make the Node+JS profile look more like Ubuntu. Using your Node+JS profile, update the properties below in the JSON. As you update your profile, the Terminal will automatically reflect your changes.
 1. Set `"useAcrylic" : false,`
 2. Set `"fontFace" : "Ubuntu Mono",`
 3. Set `"fontSize" : 14,`
@@ -113,7 +114,8 @@ Let's make the OSCON profile look more like Ubuntu. Using your OSCON profile, up
 5. Set `"cursorShape" : "filledBox",`
 6. Add `"backgroundImage" : "ms-appdata:///roaming/ubuntu.jpg",`
 7. Add `"backgroundImageOpacity" : 0.8,`
-8. Add `"tabTitle" : "Ubuntu 18.04"`
+8. Add `"tabTitle" : "Ubuntu 18.04",`
+9. Add `"suppressApplicationTitle" : true`
 
 After adding these changes, your profile should look like this:
 ```json
@@ -129,13 +131,14 @@ After adding these changes, your profile should look like this:
     "fontSize" : 14,
     "historySize" : 9001,
     "icon" : "ms-appx:///ProfileIcons/{9acb9455-ca41-5af7-950f-6bca1bc9722f}.png",
-    "name" : "My OSCON Profile",
+    "name" : "My Node+JS Profile",
     "padding" : "4, 2, 4, 2",
     "snapOnInput" : true,
     "useAcrylic" : false,
     "backgroundImage" : "ms-appdata:///roaming/ubuntu.jpg",
     "backgroundImageOpacity" : 0.8,
-    "tabTitle" : "Ubuntu 18.04"
+    "tabTitle" : "Ubuntu 18.04",
+    "suppressApplicationTitle" : true
 },
 ```
 
