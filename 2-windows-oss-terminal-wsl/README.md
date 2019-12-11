@@ -105,7 +105,7 @@ In the Terminal using your Node+JS profile, navigate to
 
 ## Customize Windows Terminal
 
-Let's make the Node+JS profile look more like Ubuntu. Using your Node+JS profile, update the properties below in the JSON. As you update your profile, the Terminal will automatically reflect your changes.
+Let's make the Node+JS profile look more like Ubuntu. Using your Node+JS profile (**Ctrl+,** from the terminal will open it in VS Code), update the properties below in the JSON. As you update your profile, the Terminal will automatically reflect your changes.
 1. Set `"useAcrylic" : false,`
 2. Set `"fontFace" : "Ubuntu Mono",`
 3. Set `"fontSize" : 14,`
