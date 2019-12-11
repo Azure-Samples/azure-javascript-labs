@@ -76,7 +76,7 @@ In the Menu bar, select **Stop Debugging** from the Debug menu or press **Shift+
 
 Now we'll update the function to pull a list of pets that are available for adoption using a module from npm that uses a Pet Finder API with a specific configuration.
 
-- Open a **Terminal Window** from the _Terminal_ menu or **Ctrl+Shift+`**
+- Open a **Terminal Window** from the _Terminal_ menu or **Ctrl+`**
 
 - In the Terminal, install the `pet` module from npm by running `npm install @frontendmasters/pet --save`.
 
