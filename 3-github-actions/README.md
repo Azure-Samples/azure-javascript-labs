@@ -137,23 +137,17 @@ Use GitHub actions to automate the deployment workflow for this web app.
 
    - **Running a command (line 31)**: You can run commands on the job's virtual machine. This action is running the npm commands below to install the dependencies, build the application, and run the tests.
 
-     ```yaml
-
-     ```
-
-   - name: npm install, build, and test
-     run: |
-     # Build and test the project, then
-     # deploy to Azure Web App.
-     npm install
-     npm run build --if-present
-     npm run test --if-present
-
-   ```
+    ```yaml
+    - name: npm install, build, and test
+      run: |
+      # Build and test the project, then
+      # deploy to Azure Web App.
+      npm install
+      npm run build --if-present
+      npm run test --if-present
+    ```
 
    > For workflow syntax for GitHub Actions see [here](https://help.github.com/en/github/automating-your-workflow-with-github-actions/workflow-syntax-for-github-actions)
-
-   ```
 
 1. You can go back to the Actions tab, click on your workflow, and see that the workflow is queued or being deployed. Wait for the job to complete successfully before going back to your website.
 
@@ -163,7 +157,7 @@ Use GitHub actions to automate the deployment workflow for this web app.
 
 1. Back in VS Code, go to the App Service extension, and right click on your app service and click on "Browse Website".
 
-1. Next, test the GitHub Actions workflow you just made. Add the following lines of code to `views/index.hbs` on line 11
+1. Next, test the GitHub Actions workflow you just made. Add the following lines of code to `views/index.hbs` on line 11 from GitHub
 
    ```html
    <div>
@@ -172,14 +166,5 @@ Use GitHub actions to automate the deployment workflow for this web app.
    ```
 
    ![](assets/images/add-html-code.png)
-
-1) In the terminal, run the following commands:
-
-   ```cmd
-   git pull
-   git add .
-   git commit -m "test ci/cd"
-   git push
-   ```
 
 1) Go back to the Actions tab and you can watch the build finishing up. Once you see all the green check marks, go to Edge and reload your website!
