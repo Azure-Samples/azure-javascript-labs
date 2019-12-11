@@ -141,9 +141,9 @@ Use GitHub actions to automate the deployment workflow for this web app.
 
 ## Test out your app!
 
-1. Back in VS Code, go to the App Service extension, and right click on your app service and click on "Browse Website".
+1. Back in VS Code, go to the App Service extension, and right click on your app service and click on "Browse Website" to see your site running.
 
-1. Next, test the GitHub Actions workflow you just made. Add the following lines of code to `views/index.hbs` on line 11 from GitHub
+1. Switch back to GitHub to test the GitHub Actions workflow you just made. Edit `views/index.hbs` using the GitHub editor and add the following lines of code on line 11
 
    ```html
    <div>
