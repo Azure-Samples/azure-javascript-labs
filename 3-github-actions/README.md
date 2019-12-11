@@ -27,23 +27,9 @@ In this lab, you will:
 
    ![](assets/images/fork-github.png)
 
-1) Open up the Terminal and run the following command, pasting in the link you just copied.
-
-   ```cmd
-   git clone <pasted URL>
-   ```
-
-1) Open the repo in Visual Studio Code.
-
-   ```
-   cd azure-javascript-labs/3-github-actions
-
-   code .
-   ```
-
 ## Create an Azure App Service web app
 
-Now that the app is cloned locally, create the App Service web app that you'l deploy to from GitHub.
+Create the App Service web app that you'l deploy to from GitHub.
 
 1. Click on the Azure icon in the sidebar.
 
