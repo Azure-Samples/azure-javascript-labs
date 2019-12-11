@@ -112,4 +112,8 @@ In the Menu bar, select **Stop Debugging** from the Debug menu or press **Shift+
 
 ## Next steps
 
+Complete our [survey](https://aka.ms/js19) to register your completion!
+
+If you'd like to try more labs:
+
 - [Sample app with an Angular front end connected to Azure Functions](https://github.com/fiveisprime/apm)
