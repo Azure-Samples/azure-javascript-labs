@@ -9,22 +9,7 @@ Browse to the [Visual Studio Online](https://online.visualstudio.com/environment
 
 ## 2. Create a plan
 
-A VS Online plan is required to create VS Online environments. To create a new plan and either use the blue **Create new plan** button, or by click the **Create new plan** in the **Plan Selector** menu in the header bar.
-
-![Create Visual Studio Online plan](./create-plan-vso-01.png)
-
-Fill in the form with the following information:
-
-- **Subscription**: Choose any existing Azure subscription you'd like.
-- **Resource Group**: Choose any existing Azure resource group you'd like.
-- **Region**: Choose the supported regions geographically closest to you. Supported regions are:
-  - East US
-  - Southeast Asia
-  - West Europe
-  - West US 2
-- **Plan Name**: My-VSO-Plan
-
-Once a plan is created, it will be the selected plan in the **Plan Selector**.
+A VS Online plan is required to create VS Online environments. In this lab a VS Online plan has been created for you.
 
 ## 3. Create an Environment
 
