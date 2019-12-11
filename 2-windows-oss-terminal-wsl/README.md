@@ -144,7 +144,10 @@ After adding these changes, your profile should look like this:
 Documentation for the settings in the profiles.json file can be found here: https://github.com/microsoft/terminal/blob/master/doc/cascadia/SettingsSchema.md
 
 ### Thank you
-Thank you for trying out Windows Terminal and WSL.  To learn more please check out the following resources.
+
+Thank you for trying out Windows Terminal and WSL. Complete our [survey](https://aka.ms/js19) to register your completion!
+
+ To learn more, please check out the following resources.
 - https://aka.ms/learnwsl
 - https://github.com/microsoft/terminal
 - https://code.visualstudio.com/docs/remote/wsl
