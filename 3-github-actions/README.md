@@ -73,7 +73,7 @@ Use GitHub actions to automate the deployment workflow for this web app.
 
    ![](assets/images/create-secret.png)
 
-1. Find the **Deploy Node.js to Azure Web App** template and select "Set up this workflow".
+1. Navigate to the Actions tab in the repo to find the **Deploy Node.js to Azure Web App** template and select "Set up this workflow".
 
    ![](assets/images/new-action.png)
 

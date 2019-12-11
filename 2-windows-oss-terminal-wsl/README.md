@@ -74,13 +74,8 @@ Save the changes using **Ctrl+S**, close the WSL tab and reopen it to see the ch
 ## TMUX
 
 To have multiple panes within our Ubuntu 18 shell we can use Tmux.  Here's how:
-<<<<<<< HEAD
-<!---
-From the Ubuntu 18 shell run `sudo apt install tmux -y` (password: nodejs)
-=======
 <!---
 From the Ubuntu 18 shell run `sudo apt install tmux -y` (password: oscon)
->>>>>>> Update path for JS Interactive.
 Installing this before hand, so they won't need to install.
 -->
 1. Open the Ubuntu 18 shell.
@@ -90,13 +85,8 @@ Installing this before hand, so they won't need to install.
     - Press **CTRL+B** and then **%** to split the screen horizontally
     - Use **CTRL+B** and then the arrow keys to navigate between the screens
     - Use whatever mix and match of cool apps you'd like here. I recommend using `htop` in the top Window, `cmatrix` on the bottom left and `cacafire`
-<<<<<<< HEAD
     - To quit a window press **CTRL+B** and then **x** and then press **y** to accept
     - Quit all windows to exit the tmux session
-=======
-    - To quit a window press **CTRL+B** and then **x** and then press **y** to accept.
-    - Quit all windows to exit the tmux session.
->>>>>>> Update path for JS Interactive.
 
 ## Run a Node Project in WSL
 
@@ -105,11 +95,7 @@ In the Terminal using your Node+JS profile, navigate to
 1. run `cd node-shopping-cart`
 2. run `npm install`
 3. run `npm start`
-<<<<<<< HEAD
-4. Use a web browser to open <http://localhost:3000> to see the site is working.  You are now running the Linux version of NodeJS locally on Windows via WSL.
-=======
 4. Use a web browser to open <http://localhost:3000> to see the site is working.  You are now running  the Linux version of NodeJS locally on Windows via WSL.
->>>>>>> Update path for JS Interactive.
 
 ### Debug the Node Project with VS Code
 1. While still in the Node+JS profile in Terminal, close the previous running instance of NodeJS if you haven't already. We're now going to start the same project using VS Code.
@@ -165,4 +151,3 @@ Thank you for trying out Windows Terminal and WSL. Complete our [survey](https:/
 - https://aka.ms/learnwsl
 - https://github.com/microsoft/terminal
 - https://code.visualstudio.com/docs/remote/wsl
-
