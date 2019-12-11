@@ -1,6 +1,6 @@
 # Windows for Open Source Developers
 
-This project walks you through setting up and customizing a Windows PC for Open Source development.  We'll introduce you to Windows Terminal and the Windows Subsystem for Linux (WSL) 2. At the end of this lab you'll use VS Code to debug a NodeJS project running in WSL. 
+This project walks you through setting up and customizing a Windows PC for Open Source development.  We'll introduce you to Windows Terminal and the Windows Subsystem for Linux (WSL) 2. At the end of this lab you'll use VS Code to debug a NodeJS project running in WSL.
 
 ## Prerequisites
 
@@ -12,7 +12,7 @@ If you are **not** at an event, please see [REQUIREMENTS](REQUIREMENTS.md) to in
 
 Open Windows Terminal (found in taskbar). Press **Ctrl+,** to edit the settings file (or use the Terminal menu and select "settings")
 
-Scroll down to `"profiles"`. Insert the profile below after the first `[`: <br/> 
+Scroll down to `"profiles"`. Insert the profile below after the first `[`: <br/>
 ```json
 {
     "guid" : "{c6eaf9f4-56a1-5fdc-b5cf-066e8a4b1e40}",
@@ -30,16 +30,16 @@ Scroll down to `"profiles"`. Insert the profile below after the first `[`: <br/>
     "padding" : "4, 2, 4, 2",
     "snapOnInput" : true,
     "useAcrylic" : false
-        
+
 },
 ```
 Save the changes. **Ctrl+S**
 
-On the Windows Terminal, select the down arrow next to the plus(+) sign as shown in this image. In the drop down, select: `My Node+JS Profile`. 
+On the Windows Terminal, select the down arrow next to the plus(+) sign as shown in this image. In the drop down, select: `My Node+JS Profile`.
 
 ![drop down menu](./nodejsmenudropdown.png)
 
-This profile will open an Ubuntu 18 bash shell. 
+This profile will open an Ubuntu 18 bash shell.
 
 Feel free to change any of the profile settings and the Terminal will automatically reload with your changes as you make them.
 
@@ -56,7 +56,7 @@ Save the changes. **Ctrl+S**
 With the fonts installed, you can install the PowerLine shell in Ubuntu.  We've downloaded the powerline-shell for you so all you need to do is add an entry to the .bashrc.
 
 Open Windows File Explorer.
-In the Address bar enter `\\wsl$\Ubuntu-18.04\home\nodejs`
+In the Address bar enter `\\wsl$\Ubuntu-18.04\home\jsinteractive`
 Edit (Double-click) .bashrc -> Opens in VS Code
 Add the following:
 
@@ -74,8 +74,13 @@ Save the changes using **Ctrl+S**, close the WSL tab and reopen it to see the ch
 ## TMUX
 
 To have multiple panes within our Ubuntu 18 shell we can use Tmux.  Here's how:
-<!--- 
+<<<<<<< HEAD
+<!---
 From the Ubuntu 18 shell run `sudo apt install tmux -y` (password: nodejs)
+=======
+<!---
+From the Ubuntu 18 shell run `sudo apt install tmux -y` (password: oscon)
+>>>>>>> Update path for JS Interactive.
 Installing this before hand, so they won't need to install.
 -->
 1. Open the Ubuntu 18 shell.
@@ -85,8 +90,13 @@ Installing this before hand, so they won't need to install.
     - Press **CTRL+B** and then **%** to split the screen horizontally
     - Use **CTRL+B** and then the arrow keys to navigate between the screens
     - Use whatever mix and match of cool apps you'd like here. I recommend using `htop` in the top Window, `cmatrix` on the bottom left and `cacafire`
+<<<<<<< HEAD
     - To quit a window press **CTRL+B** and then **x** and then press **y** to accept
     - Quit all windows to exit the tmux session
+=======
+    - To quit a window press **CTRL+B** and then **x** and then press **y** to accept.
+    - Quit all windows to exit the tmux session.
+>>>>>>> Update path for JS Interactive.
 
 ## Run a Node Project in WSL
 
@@ -95,7 +105,11 @@ In the Terminal using your Node+JS profile, navigate to
 1. run `cd node-shopping-cart`
 2. run `npm install`
 3. run `npm start`
-4. Use a web browser to open <http://localhost:3000> to see the site is working.  You are now running the Linux version of NodeJS locally on Windows via WSL. 
+<<<<<<< HEAD
+4. Use a web browser to open <http://localhost:3000> to see the site is working.  You are now running the Linux version of NodeJS locally on Windows via WSL.
+=======
+4. Use a web browser to open <http://localhost:3000> to see the site is working.  You are now running  the Linux version of NodeJS locally on Windows via WSL.
+>>>>>>> Update path for JS Interactive.
 
 ### Debug the Node Project with VS Code
 1. While still in the Node+JS profile in Terminal, close the previous running instance of NodeJS if you haven't already. We're now going to start the same project using VS Code.
