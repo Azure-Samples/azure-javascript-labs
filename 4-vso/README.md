@@ -1,7 +1,8 @@
-# Deploying a Node.js Web App using GitHub Actions
+# Using Visual Studio Online
 
 ## Overview
 
+Use Visual Studio Online to build, run, and debug a Node.js app from within a browser. In this lab, you'll learn how to create a VS Online environment from an existing GitHub repository and forward a port for local debugging.
 
 ## 1. Launch Visual Studio Online
 
