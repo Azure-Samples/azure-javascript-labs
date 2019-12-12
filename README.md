@@ -33,11 +33,11 @@ Setup and customize a Windows PC for Open Source development using the Windows T
 
 [Go to lab](2-windows-oss-terminal-wsl/README.md)
 
-## Deploying a Node.js app with GitHub Actions
+<!-- ## Deploying a Node.js app with GitHub Actions
 
 Create a web app in the Azure Cloud using the App Service extension in VS Code then configure a GitHub Actions workflow to add CI/CD to your app and get it deployed. In this lab you'll learn how to build, test, and deploy your app to Azure from your GitHub repository.
 
-[Go to lab](3-github-actions)
+[Go to lab](3-github-actions) -->
 
 ## Use Visual Studio Online
 
