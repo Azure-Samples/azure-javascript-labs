@@ -29,11 +29,11 @@ In this lab, you will:
 
 3. From the forked repository, click the green "Clone" button and copy the URL.
 
-![Clone repository linke](./images/002.png)
+![Clone repository link](./images/002.png)
 
 4. In VS Code open the Command Pallet (Ctrl/Cmd + Shift + P) and type **Git clone**, select the command and paste in the URL copied in step 3 and select a folder on disk to clone to.
 
-![Clone a repo with VS Code]()
+![Clone a repo with VS Code](./images/003.png)
 
 ## Running and Debugging with VS Code
 
@@ -78,7 +78,7 @@ In this lab, you will:
 
 6. Open the Command Pallet (Ctrl/Cmd + Shift + P) and select "Git: Delete Branch", selecting your branch from the previous exercise
 7. Click "Source Control" from the Activity Bar (Ctrl/Cmd + Shift + G) and commit the merge to the git repo
-7. Open the Command Pallet (Ctrl/Cmd + Shift + P) and select "Git: Push" to publish to GitHub
+8. Open the Command Pallet (Ctrl/Cmd + Shift + P) and select "Git: Push" to publish to GitHub
 
 ## Deploying to Azure
 
