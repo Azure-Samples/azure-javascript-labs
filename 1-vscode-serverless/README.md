@@ -51,7 +51,7 @@ In this lab, you will:
 
 ## Create a branch
 
-1. Click 'master' in the Status Bar and enter the name for a new branch (e.g.: bugfix)
+1. Click 'master' in the Status Bar and enter the name for a new branch (e.g.: update-response)
 
 ![Create a new branch](./images/006.png)
 
