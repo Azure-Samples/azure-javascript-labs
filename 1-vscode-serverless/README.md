@@ -1,114 +1,100 @@
-# Use Azure Functions to build a RESTful API
+# Working With Azure Functions in VS Code and GitHub
 
-![Azure Functions](images/AzureFunctionLogo.png)
+## Overview
 
-Create an Azure Functions serverless API that returns a list of pets to be adopted. In this lab, you will learn how to create a basic REST API using Node.js Azure Functions and add dependencies from npm.
+**Azure Functions** is a Serverless component from Microsoft that allows you to create event-based functions that can be dynamically scaled to meet the demand. We can work with all kinds of events such as when a file is uploaded to storage, a message appears in the queue or a HTTP request is received.
+
+Using GitHub we can take an existing application, fork it to our account and then create our own version of the application, all from within VS Code.
+
+## What's covered in this lab
+
+In this lab, you will:
+
+1. Fork an existing Azure Functions project on GitHub
+2. Learn how to create and merge branches in VS Code
+3. Debug Functions with VS Code
+4. Deploy Functions to Azure from VS Code
 
 ## Prerequisites
 
-If you are **not** at an event, please see [REQUIREMENTS](REQUIREMENTS.md) to install the prerequisites for this lab.
+1. You'll need VS Code with Azure Functions extension, Node.js and the Azure Functions Core Tools npm module.
+2. You are using a GitHub account and an Azure account made for the purpose of this lab. These have already been logged into your machine and the account info is saved.
 
-## Create a Function App
+## Setting up the GitHub repo
 
-Use the Azure Functions extension to create a new function app.
+1. Navigate to the [example app repository](https://github.com/aaronpowell/trivia-api).
+2. Click the "Fork" button in the upper-right hand corner of the repository.
 
-- Open Visual Studio Code Insiders
-- In the Activity bar (on left side), select the Azure icon
-- Click the Create New Project button (the in the explorer)
+![Fork a GitHub repository](./images/001.png)
 
-![Azure Function Extension](images/create_function.png)
+3. From the forked repository, click the green "Clone" button and copy the URL.
 
-- Select _projects/pets_ folder from the
+![Clone repository link](./images/002.png)
 
-![Folder](images/folder.png)
+4. In VS Code open the Command Pallet (Ctrl/Cmd + Shift + P) and type **Git clone**, select the command and paste in the URL copied in step 3 and select a folder on disk to clone to.
 
-Now the _Create new project_ wizard appears, enter the following
+![Clone a repo with VS Code](./images/003.png)
 
-- Select **JavaScript** for the language of the Function App
+## Running and Debugging with VS Code
 
-![Select JavaScript](images/select_javascript.png)
+1. Click "Run and Debug" from the Activity Bar (Ctrl/Cmd + Shift + D)
 
-- Select **HTTP trigger** for the template
+![Run and Debug](./images/004.png)
 
-![Select HTTP trigger](images/select_HTTP_trigger.png)
+2. Click "Start Debugging" (F5)
 
-- Replace the default function name **HttpTrigger** with **pets**
+![Start Debugging](./images/005.png)
 
-![Change Name](images/rename_function.png)
+3. Add a breakpoint to line 4 of `GetAllQuestions/index.js`
+4. Open a browser and navigate to http://localhost:7071/api/GetAllQuestions
+5. Observe the breakpoint being hit in VS Code, then press F5 to continue execution
 
-- Select **Anonymous** for the _Authorization level_
+## Create a branch
 
-![Choose Ananymous](images/choose_Anonymous.png)
+1. Click 'master' in the Status Bar and enter the name for a new branch (e.g.: update-response)
 
-- Select **Open in current window**
+![Create a new branch](./images/006.png)
 
-The HTTP Trigger function just created is opened in the editor window.
+2. Edit `GetAllQuestions/index.js` to return the question and possible answers, without indicating the correct answer
 
-![Created Project](images/created_project.png)
+![Updating API return value](./images/007.png)
 
-## Run the Function locally
+3. Click "Source Control" from the Activity Bar (Ctrl/Cmd + Shift + G) and enter a commit message for the change
 
-Using a template to create the function, creates a working Http Trigger function we can test locally.<br>
-Let's try it now:
+![Enter a commit message](./images/008.png)
 
-- In the Menu bar, select **Start Debugging** from the _Debug_ menu or press **Fn+F5**
+## Update master branch
 
-A Terminal opens with the debug output.
+1. Use the Status Bar to navigate back to the 'master' branch
+2. Edit GetAllQuestions/index.js to only return the first 5 questions in the response
 
-> Debug automatically excutes _run npm install_, to install any depencies, and starts the Azure Functions host.
+![Update the code](./images/009.png)
 
-Once the host is started, the URL appears.
+3. Click "Source Control" from the Activity Bar (Ctrl/Cmd + Shift + G) and enter a commit message for the change
+4. Open the Command Pallet (Ctrl/Cmd + Shift + P) and select "Git: Merge Branch", selecting your branch from the previous exercise
+5. Select "Accept incoming Changes" in the Merge Conflict window
 
-![Running Function](images/running_function.png)
+![Accepting changes in a merge conflict](./images/010.png)
 
-Hold **Crtl** while click the URL or type `http://localhost:7071/api/pets` in a browser.
+6. Open the Command Pallet (Ctrl/Cmd + Shift + P) and select "Git: Delete Branch", selecting your branch from the previous exercise
+7. Click "Source Control" from the Activity Bar (Ctrl/Cmd + Shift + G) and commit the merge to the git repo
+8. Open the Command Pallet (Ctrl/Cmd + Shift + P) and select "Git: Push" to publish to GitHub
 
-> You'll see a message that says "Please pass a name on the query string or in the request body"
+## Deploying to Azure
 
-- Add a query parameter, `name`, to the URL, `?name=OSCON`, press **Enter** and now the page shows: "Hello OSCON"
-  > `http://localhost:7071/api/pets?name=OSCON`
+1. Open the Command Pallet (Ctrl/Cmd + Shift + P) and select "Azure Functions: Deploy to Function App"
 
-![Hello OSCON](images/hello_oscon.png)
+![Open Azure](./images/011.png)
 
-In the Menu bar, select **Stop Debugging** from the Debug menu or press **Shift+Fn+F5**
+2. Follow the wizard providing information along the way for:
 
-## Finding pets for adoption
+- Select your subscription
+- Function App Name (eg: YOUR_NAME-jsghfunctions)
+- Node.js runtime (12.x)
+- Azure Region (Pick one close to you, e.g.: Australia East)
 
-Now we'll update the function to pull a list of pets that are available for adoption using a module from npm that uses a Pet Finder API with a specific configuration.
-
-- Open a **Terminal Window** from the _Terminal_ menu or **Ctrl+`**
-
-- In the Terminal, install the `pet` module from npm by running `npm install @frontendmasters/pet --save`.
-
-- Replace the default code in the `index.js` with:
-
-```js
-const pet = require("@frontendmasters/pet");
-
-module.exports = async function(context, req) {
-  const response = await pet.animals();
-
-  if (!response.animals)
-    return (context.res = {
-      status: 500,
-      body: response.message
-    });
-
-  context.res = {
-    body: response.animals
-  };
-};
-```
-
-Now test your new code:
-
-- In the Menu bar, select **Start Debugging** from the _Debug_ menu or press **Fn+F5**
-- Start Debug again and load the URL `http://localhost:7071/api/pets`
-  > This time, you'll see a JSON array of pets along with links to photos and more information for each
-
-At this point, you can hook a front-end up to you API and start helping lovely animals find happy homes!
-
-In the Menu bar, select **Stop Debugging** from the Debug menu or press **Shift+Fn+F5**
+3. It will take a minute or two to create the app. Once it's done, you'll get prompted with the URL of the deployed app, which you can navigate to in the browser
+4. Open up the [Azure Portal](https://portal.azure.com) and navigate to your subscription -> resource group -> Function App to view the deployed app in Azure
 
 ## Next steps
 
