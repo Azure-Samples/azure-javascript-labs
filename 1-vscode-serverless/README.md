@@ -2,7 +2,7 @@
 
 ## Overview
 
-**Azure Functions** is a Serverless component from Microsoft that allows you to create event-based functions that can be dynamically scaled to meet the demand. We can work with all kinds of events such as when a file is uploaded to storage, a message appears in the queue or a HTTP request is received.
+[**Azure Functions**](https://docs.microsoft.com/azure/azure-functions/?WT.mc_id=tutorial-github-aapowell) is a Serverless component from Microsoft that allows you to create event-based functions that can be dynamically scaled to meet the demand. We can work with all kinds of events such as when a file is uploaded to storage, a message appears in the queue or a HTTP request is received.
 
 Using GitHub we can take an existing application, fork it to our account and then create our own version of the application, all from within VS Code.
 
@@ -18,7 +18,8 @@ In this lab, you will:
 ## Prerequisites
 
 1. You'll need VS Code with Azure Functions extension, Node.js and the Azure Functions Core Tools npm module.
-2. You are using a GitHub account and an Azure account made for the purpose of this lab. These have already been logged into your machine and the account info is saved.
+2. You are using a GitHub account ([sign up for free](https://github.com/join)).
+3. You have an Azure subscription ([sign up for free](https://azure.microsoft.com/free/?WT.mc_id=tutorial-github-aapowell)).
 
 ## Setting up the GitHub repo
 
@@ -94,7 +95,7 @@ In this lab, you will:
 - Azure Region (Pick one close to you, e.g.: Australia East)
 
 3. It will take a minute or two to create the app. Once it's done, you'll get prompted with the URL of the deployed app, which you can navigate to in the browser
-4. Open up the [Azure Portal](https://portal.azure.com) and navigate to your subscription -> resource group -> Function App to view the deployed app in Azure
+4. Open up the [Azure Portal](https://portal.azure.com?WT.mc_id=tutorial-github-aapowell) and navigate to your subscription -> resource group -> Function App to view the deployed app in Azure
 
 ## Next steps
 
