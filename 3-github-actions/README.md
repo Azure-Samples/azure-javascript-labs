@@ -1,4 +1,4 @@
-# Deploying a Node.js Web App using GitHub Actions
+# Deploying Azure Functions using GitHub Actions and VS Code
 
 ## Overview
 
@@ -10,88 +10,49 @@ With **GitHub Actions** you can build end-to-end continuous integration (CI) and
 
 In this lab, you will:
 
-1. Create a web app on Azure using the App Service extension
-1. Create a workflow with GitHub Actions to add CI/CD to your app
+1. Create a workflow with GitHub Actions to add CI/CD to your app using the Deploy to Azure extension
+1. Deploy the Functions App to Azure
 
 ### Prerequisites
 
-1. Your Windows machine should have Node.js LTS and Visual Studio Code.
-
-1. You are using a GitHub account and an Azure account made for the purposes of this lab. These have been already logged into from your machine and the account info is saved.
-
-### Setting up the GitHub repo
-
-1. Navigate to the [example app repository](https://github.com/fiveisprime/Useful-Website).
-
-1. Click the "Fork" button in the upper-right hand corner of the repository. From there, click the green "Clone" button and copy the URL.
-
-   ![](assets/images/fork-github.png)
-
-## Create an Azure App Service web app
-
-Create the App Service web app that you'l deploy to from GitHub.
-
-1. Click on the Azure icon in the sidebar.
-
-   ![](assets/images/azure-sidebar.png)
-
-1) Click on the `+` icon to create a new app service under the **VSCode GitHub Universe HOL** subscription.
-
-   ![](assets/images/create-app-service.png)
-
-1. Give your webapp a unique name (we recommend calling it **YOUR_NAME-jsinteractive** )
-
-1. Select **Linux** as your OS and **Node.js LTS** as your runtime.
-
-1. It will take a minute or two to create the app. Once it's done, you'll get a prompt to browse to your new site. Click on "View output" and open the link to your site.
-
-   > Note: If creation of the app is taking a bit longer than you expect, call one of the proctors and we'll switch you to an already created app
-
-1. The page you browse to will be the default site you see, since you haven't yet deployed anything to the site.
-
-   ![](assets/images/python-default-site.png)
+1. Your Windows machine should have Node.js LTS and Visual Studio Code (VS Code).
+1. An Azure account with an active subscription. If you don't have one, you can [create an account for free](https://azure.microsoft.com/free/).
+1. A GitHub account. If you don't have one, you can [create an account for free](https://github.com/join).
+1. The application from [lab 1](../1-vscode-serverless).
 
 ## Set up CI/CD with GitHub Actions
 
-Use GitHub actions to automate the deployment workflow for this web app.
+Use GitHub Actions to automate the deployment workflow for this Functions app.
 
-1. Inside the App Service extension, right click on the name of your app service and choose "Open in Portal".
+1. Open the application from [lab 1](../1-vscode-serverless) in VS Code
 
-   ![](assets/images/open-in-portal.png)
+1. Install the [Deploy to Azure](https://marketplace.visualstudio.com/items?itemName=ms-vscode-deploy-azure.azure-deploy&WT.mc_id=tutorial-github-aapowell) extension in VS Code.
 
-1. From the Overview page, click on "Get publish profile". A publish profile is a kind of deployment credential, useful when you don't own the Azure subscription.
+![Install the extension](assets/images/001.png)
 
-   ![](assets/images/get-publish-profile.png)
+1. Open the Command Pallet (Ctrl/Cmd + Shift + P) and select "Deploy to Azure: Configure CI/CD Pipeline".
 
-1. Open the settings file you just downloaded in VS Code and copy the contents of the file.
+![Install the extension](assets/images/002.png)
 
-1. Add the publish profile as a secret associated with this repo. On the GitHub repository, click on the "Settings" tab.
+1. Follow the prompts to select your subscription, use the pipeline template "Node.js Function App on Azure Functions" and select your resource group.
 
-   ![](assets/images/github-settings.png)
+1. To create a GitHub Personal Access Token (PAT) you need to navigate in your browser to your GitHub Settings -> Developer Settings -> [Personal Access Tokens](https://github.com/settings/tokens) and click "Generate Token".
 
-1) Go to "Secrets". Create a new secret and call it "AZURE_WEBAPP_PUBLISH_PROFILE". Paste the contents from the settings file.
+![Generate a PAT](assets/images/003.png)
 
-   ![](assets/images/create-secret.png)
+1. Provide a name for the PAT select all the _repo_ scopes.
 
-1. Navigate to the Actions tab in the repo to find the **Deploy Node.js to Azure Web App** template and select "Set up this workflow".
+![Selected scopes for PAT](assets/images/004.png)
 
-   ![](assets/images/new-action.png)
+1. Click **Generate token** and copy the PAT to VS Code where the extension is prompting for it. This will generate a GitHub Actions workflow for you.
 
-1. Update the `env` object, set `AZURE_WEBAPP_NAME` to the name of your app.
+1. Click "Source Control" from the Activity Bar (Ctrl/Cmd + Shift + G) and enter a commit message for the change.
 
+1. Open the Command Pallet (Ctrl/Cmd + Shift + P) and select "Git: Push" to publish to GitHub.
 
-    ```yml
-    env:
-        AZURE_WEBAPP_NAME: YOUR_NAME-jsinteractive
-    ```
+1. While the Action is being queued, let's get into the details of what this workflow is actually doing. Go to the `.github/workflows/workflow.yml` file to follow along.
 
-    ![](assets/images/add-yaml-file.png)
-
-1. Once you're done, click on "Start commit". Fill in the text box with a commit message, and then click the "Commit change" button, which will trigger the workflow.
-
-1. While the Action is being queued, let's get into the details of what this workflow is actually doing. Go to the `.github/workflows/azure.yml` file to follow along.
-
-   - **Workflow Triggers (line 11)**: Your workflow is set up to run on "push" events to the branch
+   - **Workflow Triggers (line 5)**: Your workflow is set up to run on "push" events to the branch
 
    ```yaml
    on:
@@ -100,57 +61,54 @@ Use GitHub actions to automate the deployment workflow for this web app.
          - master
    ```
 
-   For more information, see [Events that trigger workflows](https://help.github.com/articles/events-that-trigger-workflows).
+   > For more information, see [Events that trigger workflows](https://help.github.com/articles/events-that-trigger-workflows).
 
-   - **Running your jobs on hosted runners (line 21):** GitHub Actions provides hosted runners for Linux, Windows, and macOS. We specify the hosted runner in our workflow as below.
+   - **Running your jobs on hosted runners (line 12):** GitHub Actions provides hosted runners for Linux, Windows, and macOS. We specify the hosted runner in our workflow as below.
 
    ```yaml
    jobs:
      build-and-deploy:
-       name: Build and Deploy
-       runs-on: ubuntu-latest
+       runs-on: windows-2019
    ```
 
-   - **Using an action (line 26)**: Actions are reusable units of code that can be built and distributed by anyone on GitHub. To use an action, you must specify the repository that contains the action. We are also specifying the version of Node.js.
+   - **Using an action (line 16)**: Actions are reusable units of code that can be built and distributed by anyone on GitHub. To use an action, you must specify the repository that contains the action. This shows the action to get the code from our current repo.
+
+   ```yml
+   - uses: actions/checkout@master
+   ```
+
+   - **Using variables and secrets (line 19)**: Sometimes we might want to store a secret, such as our Azure credentials, or just have a reusable variable defined. The `${{ ... }}` syntax denotes a variable and `secret.SOMETHING` is a secret stored in GitHub and won't appear in the logs. This action performs an authentication to Azure so we can run future Actions against it.
 
    ```yaml
-   - uses: actions/checkout@master
-       - name: Use Node.js ${{ env.NODE_VERSION }}
-         uses: actions/setup-node@v1
-         with:
-           node-version: ${{ env.NODE_VERSION }}
+   - uses: azure/login@v1
+     with:
+       creds: ${{ secrets.AZURE_CREDENTIALS_7870b2dc }}
    ```
 
-   - **Running a command (line 31)**: You can run commands on the job's virtual machine. This action is running the npm commands below to install the dependencies, build the application, and run the tests.
+   > For more information, see [Using variables and secrets in a workflow](https://help.github.com/en/actions/configuring-and-managing-workflows/using-variables-and-secrets-in-a-workflow).
 
-    ```yaml
-    - name: npm install, build, and test
+   - **Running a command (line 23)**: You can run commands on the job's virtual machine. This action is running the npm commands below to install the dependencies, build the application, and run the tests.
+
+   ```yaml
+   - name: 'Run npm'
+      shell: bash
+      working-directory: .
       run: |
-      # Build and test the project, then
-      # deploy to Azure Web App.
-      npm install
-      npm run build --if-present
-      npm run test --if-present
-    ```
+        # If your function app project is not located in your repository's root
+        # Please change your directory for npm in pushd
+        pushd .
+        npm install
+        npm run build --if-present
+        npm run test --if-present
+        popd
+   ```
 
    > For workflow syntax for GitHub Actions see [here](https://help.github.com/en/github/automating-your-workflow-with-github-actions/workflow-syntax-for-github-actions)
 
-1. You can go back to the Actions tab, click on your workflow, and see that the workflow is queued or being deployed. Wait for the job to complete successfully before going back to your website.
+1. In the browser, navigate to your GitHub repo and select the Actions tab to view the Action.
 
-   ![](assets/images/workflow-complete.png)
+![Action run in GitHub](assets/images/005.png)
 
-## Test out your app!
+1. Open up the [Azure Portal](https://portal.azure.com?WT.mc_id=tutorial-github-aapowell) and navigate to your subscription -> resource group -> Function App to view the deployed app in Azure.
 
-1. Back in VS Code, go to the App Service extension, and right click on your app service and click on "Browse Website" to see your site running.
-
-1. Switch back to GitHub to test the GitHub Actions workflow you just made. Edit `views/index.hbs` using the GitHub editor and add the following lines of code on line 11
-
-   ```html
-   <div>
-       <h1 style="text-align:center;"> Press the button!<h1>
-   </div>
-   ```
-
-   ![](assets/images/add-html-code.png)
-
-1) Go back to the Actions tab and you can watch the build finishing up. Once you see all the green check marks, go to Edge and reload your website!
+1. Using the knowledge gained in [lab 1](../1-vscode-serverless), make some changes and merge to the `master` branch then push to GitHub and watch the Action trigger for each push.
